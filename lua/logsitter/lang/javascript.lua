@@ -173,8 +173,8 @@ function M.log(text, position)
     local label = text:gsub('"', '\\"')
     local filepath = vim.fn.expand('%:.')
     local line = position[1]
-
-    return string.format([[oconsole.log("LS -> %s:%s -> %s: ", %s)]], filepath,
+    local filename = vim.fn.fnamemodify(filepath, ':t')
+    return string.format([[oconsole.log('🚀  -> %s:%s -> %s: ', %s)]], filename,
                          line, label, text)
 end
 
